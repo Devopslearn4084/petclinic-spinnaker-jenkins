@@ -17,7 +17,8 @@ pipeline {
             }
             post {
                 always {
-                    junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
+                    sh 'ln -s tests/test-results-unit.xml $WORKSPACE'
+                    junit "test-results-unit.xml"
                 }
             }
         }

@@ -16,7 +16,7 @@ pipeline {
                 sh 'mvn test'
             }
             post {
-                skip {
+                always {
                     junit 'target/surefire-reports/*.xml'
                 }
             }

@@ -17,8 +17,7 @@ pipeline {
             }
             post {
                 always {
-                    sh 'ln -s tests/test-results-unit.xml $WORKSPACE'
-                    junit "test-results-unit.xml"
+                    junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
                 }
             }
         }
